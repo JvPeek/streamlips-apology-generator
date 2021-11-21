@@ -1,0 +1,36 @@
+html,
+body {
+  background: #333;
+  color: white;
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Lato', sans-serif;
+}
+
+#header {
+  background: white;
+  color: #333;
+  background: url("../img/logo.png") center center no-repeat #fff;
+  line-height: 84px;
+
+  height: 84px;
+  border-bottom: 3px solid black;
+}
+h1 {
+  text-align: center;
+  margin-top: 0px;
+}
+#genericwebformfortheinterwebs {
+  width: 800px;
+  margin: 20px auto;
+  border: white 0px solid;
+  padding: 20px;
+  border-radius: 20px;
+  background: url("../img/background.png") center top no-repeat;
+  color: #333;
+}
+#apology {
+  width: 1200px;
+  height: 675px;
+  background: black;
+}
