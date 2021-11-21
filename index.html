@@ -52,16 +52,19 @@
       ];
 
       function makeApology() {
+        const color = [40,35,30,25,20,15,10,5,0,0,0];
         const fontsize = 24;
         const lineHeight = fontsize*1.1;
         const canvas = document.getElementById("apology");
         const ctx = canvas.getContext("2d");
         const fuckuplevel = document.getElementById("fuckuplevel").value;
         const name = document.getElementById("name").value;
-
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = "rgb(" + color[fuckuplevel-1] + "," + color[fuckuplevel-1] + "," + color[fuckuplevel-1] + ")";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
         let lines = [];
-        if (fuckuplevel >=8) {
+        if (fuckuplevel >=11) {
           ctx.font = fontsize + "px Comic Sans MS";
         } else {
           ctx.font = fontsize + "px Lato";
