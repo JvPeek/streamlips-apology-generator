@@ -22,7 +22,7 @@ h1 {
 }
 #genericwebformfortheinterwebs {
   float: left;
-  width: 500px;
+  width: 400px;
   margin: 20px 30px;
   border: white 0px solid;
   padding: 20px;
@@ -38,7 +38,7 @@ h1 {
 }
 .gobutton {
   width: 80%;
-  margin: 0px auto;
+  margin: 10px auto 0px;
   height: 50px;
   background: white;
   color: #333;

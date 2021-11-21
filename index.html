@@ -28,7 +28,7 @@
           ["We are striving to give apprentices a good learning experience."],
           ["We want to save the environment so we want to upcycle resources (including code) as often as possible."],
           ["We take no responsibility for our actions but we can't take the bad press anymore."],
-          ["You can unsubscribe in 42 easy steps. Our moderation team will decide if your request is justified within 6 months."],
+          ["You can unsubscribe in 42 easy steps. Our moderation team will decide upon your request within 6 months."],
           ["Please use this subscription service model to request a GDPR conform deletion of your personal information."],
           ["For service and complaint requests, please reach out to us under no-reply@example.com."]
         ],
@@ -52,7 +52,6 @@
         const ctx = canvas.getContext("2d");
         const fuckuplevel = document.getElementById("fuckuplevel").value;
         const name = document.getElementById("name").value;
-        let money = document.getElementById("money").value;
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         let lines = [];
@@ -106,7 +105,6 @@
 
       <label for="name">What's your name?</label><input id="name" type="text" class="text" value="StreamLips" /><br />
       <label for="fuckuplevel">How badly did you screw up?</label><input type="range" min="1" max="11" value="5" class="slider" id="fuckuplevel"><br />
-      <label for="donation">How much money do you want to throw at the issue?</label><input id="money" type="number" value="500" class="number" size="5"/><br />
       <button onclick="makeApology();" class="gobutton">Go</button>
     </div>
 
