@@ -29,6 +29,12 @@ h1 {
   border-radius: 20px;
   background: url("../img/background.png") center top no-repeat;
   color: #333;
+  text-align: right;
+
+}
+#genericwebformfortheinterwebs input {
+  width: 100px;
+  margin-left: 20px;
 }
 .gobutton {
   width: 80%;

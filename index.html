@@ -9,28 +9,28 @@
     <script type="text/javascript">
       const texts = [
         [
-          ["We are taking immediate action to be a slightly","better version of ourselves."],
-          ["We take some responsibility for our actions and","will support the streaming community."],
-          ["We just now fired one of our employees that had nothing","to do with the incident."],
-          ["We are now ready again and cleaned up our bureau","for your future happiness and money."],
+          ["We are taking immediate action to be a slightly better version of ourselves."],
+          ["We take some responsibility for our actions and will support the streaming community."],
+          ["We just now fired one of our employees that had nothing to do with the incident."],
+          ["We are now ready again and cleaned up our bureau for your future happiness and money."],
           ["We are an inclusive company who treats everyone equally bad."],
           ["Management delegates full responsibility for the decisions made."],
-          ["We want everyone to have a good enough user experience, so to make our products suitable for everyone we are constantly trying to adapt the technology to our interests."],
+          ["We want everyone to have a good enough user experience, so to make our products","suitable for everyone we are constantly trying to adapt the technology to our interests."],
           ["We took responsibility and fired the intern in charge."]
         ],
         [
-          ["You as our customers are very valuable to us.","Because you give us money for our joy-rides and costly vacations."],
-          ["We did it because we thought we could make a positive ripple","not only inside our wallets but on the internet as a whole."],
-          ["We tried our best to replicate the experience of","the original product and only added monetization options."],
+          ["You as our customers are very valuable to us. Because you give us money for our costly vacations."],
+          ["We did it because we thought we could make a positive ripple inside our wallets."],
+          ["We tried our best to replicate the experience of the original product and only added monetization options."],
           ["We already donated _MONEY_ to an undisclosed charity."],
-          ["The issue in question was not implemented by us.","It was forked from the original project."],
-          ["The bare minimum of our code is open source.","Because the license of the original product requires that."],
+          ["The issue in question was not implemented by us. It was forked from the original project."],
+          ["The bare minimum of our code is open source. Because the license of the original product requires that."],
           ["We are striving to give apprentices a good learning experience."],
-          ["We want to save the environment so we want to","upcycle resources (including code) as often as possible."],
-          ["We take no responsibility for our actions but","we can't take the bad press anymore."],
-          ["You can unsubscribe in 42 easy steps.","Our moderation team will decide if your request is justified within 6 months."],
-          ["Please use this subscription service model to","request a GDPR conform deletion of your personal information."],
-          ["For service and complaint requests, please reach out","to us under no-reply@example.com."]
+          ["We want to save the environment so we want to upcycle resources (including code) as often as possible."],
+          ["We take no responsibility for our actions but we can't take the bad press anymore."],
+          ["You can unsubscribe in 42 easy steps. Our moderation team will decide if your request is justified within 6 months."],
+          ["Please use this subscription service model to request a GDPR conform deletion of your personal information."],
+          ["For service and complaint requests, please reach out to us under no-reply@example.com."]
         ],
         [
           ["We are deeply sorry that we got caught."],
@@ -46,8 +46,8 @@
       ];
 
       function makeApology() {
-        const fontsize = 30;
-        const lineHeight = fontsize*1.5;
+        const fontsize = 24;
+        const lineHeight = fontsize*1.1;
         const canvas = document.getElementById("apology");
         const ctx = canvas.getContext("2d");
         const fuckuplevel = document.getElementById("fuckuplevel").value;
@@ -59,25 +59,39 @@
         if (fuckuplevel >=8) {
           ctx.font = fontsize + "px Comic Sans MS";
         } else {
-          ctx.font = fontsize + "px Arial";
+          ctx.font = fontsize + "px Lato";
         }
+
 
         function drawText(texts,ctx,linepos) {
           for(i = 0; i < texts.length; i++) {
             ctx.fillText(texts[i], canvas.width/2, linepos+lineHeight*i);
           }
         }
-
+        function getMoneyString(money, fuckuplevel) {
+          const rate=[1,1,1,1];
+        }
+        function onlyUnique(value, index, self) {
+          return self.indexOf(value) === index;
+        }
         ctx.fillStyle = "white";
         ctx.textAlign = "center";
+        let randomNumbers=[];
+        while (randomNumbers.filter(onlyUnique).length <2) {
+          randomNumbers.push(Math.floor(Math.random()*(texts[1].length)));
+        }
+        console.log(randomNumbers, );
         lines[0] = texts[0][Math.floor(Math.random()*5)];
-        drawText(lines[0],ctx,100);
-        lines[1] = texts[1][Math.floor(Math.random()*5)];
-        drawText(lines[1],ctx,canvas.height/2-lineHeight*2);
-        lines[2] = texts[1][Math.floor(Math.random()*5)];
-        drawText(lines[2],ctx,canvas.height/2);
+        drawText(lines[0],ctx,155);
+        lines[1] = texts[1][randomNumbers.filter(onlyUnique)[0]];
+        drawText(lines[1],ctx,255);
+        lines[2] = texts[1][randomNumbers.filter(onlyUnique)[1]];
+        drawText(lines[2],ctx,300);
         lines[3] = texts[2][Math.floor(Math.random()*5)];
-        drawText(lines[3],ctx,(canvas.height-100-fontsize));
+        drawText(lines[3],ctx,410);
+        ctx.font="30px Comic Sans MS"
+        drawText([name],ctx,525);
+
 
       }
     </script>
@@ -92,7 +106,7 @@
 
       <label for="name">What's your name?</label><input id="name" type="text" class="text" value="StreamLips" /><br />
       <label for="fuckuplevel">How badly did you screw up?</label><input type="range" min="1" max="11" value="5" class="slider" id="fuckuplevel"><br />
-      <label for="donation">How much money do you want to throw at the issue?</label><input id="money" type="number" value="500" class="number" /><br />
+      <label for="donation">How much money do you want to throw at the issue?</label><input id="money" type="number" value="500" class="number" size="5"/><br />
       <button onclick="makeApology();" class="gobutton">Go</button>
     </div>
 
