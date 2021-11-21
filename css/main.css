@@ -21,16 +21,42 @@ h1 {
   margin-top: 0px;
 }
 #genericwebformfortheinterwebs {
-  width: 800px;
-  margin: 20px auto;
+  float: left;
+  width: 500px;
+  margin: 20px 30px;
   border: white 0px solid;
   padding: 20px;
   border-radius: 20px;
   background: url("../img/background.png") center top no-repeat;
   color: #333;
 }
+.gobutton {
+  width: 80%;
+  margin: 0px auto;
+  height: 50px;
+  background: white;
+  color: #333;
+  border: 2px #333 solid;
+  border-radius: 5px;
+  font-size: 25px;
+}
 #apology {
+  float: right;
   width: 1200px;
   height: 675px;
   background: black;
+  margin-bottom: 100px;
+}
+
+#footer {
+  background: rgba(0,0,0,0.5);
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  padding: 20px 0px;
+  text-align: center;
+  color: white;
+}
+#footer a {
+  color: white;
 }

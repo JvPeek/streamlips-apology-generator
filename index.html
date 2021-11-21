@@ -6,6 +6,81 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <script type="text/javascript">
+      const texts = [
+        [
+          ["We are taking immediate action to be a slightly","better version of ourselves."],
+          ["We take some responsibility for our actions and","will support the streaming community."],
+          ["We just now fired one of our employees that had nothing","to do with the incident."],
+          ["We are now ready again and cleaned up our bureau","for your future happiness and money."],
+          ["We are an inclusive company who treats everyone equally bad."],
+          ["Management delegates full responsibility for the decisions made."],
+          ["We want everyone to have a good enough user experience, so to make our products suitable for everyone we are constantly trying to adapt the technology to our interests."],
+          ["We took responsibility and fired the intern in charge."]
+        ],
+        [
+          ["You as our customers are very valuable to us.","Because you give us money for our joy-rides and costly vacations."],
+          ["We did it because we thought we could make a positive ripple","not only inside our wallets but on the internet as a whole."],
+          ["We tried our best to replicate the experience of","the original product and only added monetization options."],
+          ["We already donated _MONEY_ to an undisclosed charity."],
+          ["The issue in question was not implemented by us.","It was forked from the original project."],
+          ["The bare minimum of our code is open source.","Because the license of the original product requires that."],
+          ["We are striving to give apprentices a good learning experience."],
+          ["We want to save the environment so we want to","upcycle resources (including code) as often as possible."],
+          ["We take no responsibility for our actions but","we can't take the bad press anymore."],
+          ["You can unsubscribe in 42 easy steps.","Our moderation team will decide if your request is justified within 6 months."],
+          ["Please use this subscription service model to","request a GDPR conform deletion of your personal information."],
+          ["For service and complaint requests, please reach out","to us under no-reply@example.com."]
+        ],
+        [
+          ["We are deeply sorry that we got caught."],
+          ["Please give us your money again."],
+          ["That'll be $5 USD/month."],
+          ["We are very sorry that you had to find out that way."],
+          ["No refunds."],
+          ["Stop whining."],
+          ["Now GTFO."],
+          ["We are sorry you feel this way."],
+          ["At least we made our own logo."]
+        ]
+      ];
+
+      function makeApology() {
+        const fontsize = 30;
+        const lineHeight = fontsize*1.5;
+        const canvas = document.getElementById("apology");
+        const ctx = canvas.getContext("2d");
+        const fuckuplevel = document.getElementById("fuckuplevel").value;
+        const name = document.getElementById("name").value;
+        let money = document.getElementById("money").value;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        let lines = [];
+        if (fuckuplevel >=8) {
+          ctx.font = fontsize + "px Comic Sans MS";
+        } else {
+          ctx.font = fontsize + "px Arial";
+        }
+
+        function drawText(texts,ctx,linepos) {
+          for(i = 0; i < texts.length; i++) {
+            ctx.fillText(texts[i], canvas.width/2, linepos+lineHeight*i);
+          }
+        }
+
+        ctx.fillStyle = "white";
+        ctx.textAlign = "center";
+        lines[0] = texts[0][Math.floor(Math.random()*5)];
+        drawText(lines[0],ctx,100);
+        lines[1] = texts[1][Math.floor(Math.random()*5)];
+        drawText(lines[1],ctx,canvas.height/2-lineHeight*2);
+        lines[2] = texts[1][Math.floor(Math.random()*5)];
+        drawText(lines[2],ctx,canvas.height/2);
+        lines[3] = texts[2][Math.floor(Math.random()*5)];
+        drawText(lines[3],ctx,(canvas.height-100-fontsize));
+
+      }
+    </script>
     <title>StreamLips Apology Generator. Steal this, SL!</title>
   </head>
   <body>
@@ -15,12 +90,13 @@
     <div id="genericwebformfortheinterwebs">
       <h1>So.. you fucked up?</h1>
 
-      <label for="name">What's your name?</label><input type="text" class="text" value="StreamLips" /><br />
+      <label for="name">What's your name?</label><input id="name" type="text" class="text" value="StreamLips" /><br />
       <label for="fuckuplevel">How badly did you screw up?</label><input type="range" min="1" max="11" value="5" class="slider" id="fuckuplevel"><br />
-      <label for="donation">How much money do you want to throw at the issue?</label><input type="number" value="500" class="number" />
+      <label for="donation">How much money do you want to throw at the issue?</label><input id="money" type="number" value="500" class="number" /><br />
+      <button onclick="makeApology();" class="gobutton">Go</button>
     </div>
 
-    <canvas id="apology"></canvas>
+    <canvas id="apology" width=1200 height=675></canvas>
     <div id="footer">
       Made by <a href="https://twitch.tv/jvpeek" target="_blank">JvPeek</a>
     </div>
